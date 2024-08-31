@@ -15,17 +15,19 @@ class Employees(AbstractBaseUser,PermissionsMixin):
   is_active=models.BooleanField(default=True)
   is_superuser=models.BooleanField(default=False)
   is_staff=models.BooleanField(default=False)
+
+  class Meta:
+      ordering =['Employee_name']
+  
+  def __str__(self):
+       return self.Employee_name
+  
   
 
   USERNAME_FIELD='phone_number'
   REQUIRED_FIELDS=[]
   objects=UserManager()
 
-#   class Meta:
-#       ordering =['Employee_name']
-  
-#   def __str__(self):
-#        return self.Employee_name
   
 
 

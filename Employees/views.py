@@ -4,9 +4,6 @@ from .serializers import employeesSerializer
 from rest_framework import generics
 from rest_framework.permissions import AllowAny,IsAuthenticated
 
-
-
-
 class Employee(generics.CreateAPIView):
    queryset=Employees.objects.all()
    serializer_class=employeesSerializer
