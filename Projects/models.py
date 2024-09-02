@@ -4,7 +4,7 @@ from Employees.models import Employees
 
 class Project(models.Model):
   Project_name = models.CharField(max_length=100)
-  Project_image = models.ImageField(upload_to="Profile",blank=True)
+  Project_image = models.ImageField(upload_to="static/project",blank=True)
   Description = models.CharField(max_length=500)
   Manager = models.ForeignKey(Employees,on_delete=models.CASCADE)
   Start_date = models.DateField()

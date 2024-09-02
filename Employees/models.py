@@ -7,7 +7,7 @@ from .manager import UserManager
 class Employees(AbstractBaseUser,PermissionsMixin):
   Employee_name=models.CharField(max_length=100)
   phone_number=models.CharField(max_length=100,unique=True)
-  Profile_image =models.ImageField(upload_to="Profile",blank=True)
+  Profile_image =models.ImageField(upload_to="static/employee",blank=True)
   email = models.EmailField(blank=True)
   Joining_date = models.DateField(default=datetime.now,blank=True)
   Skills =models.CharField(max_length=100,default='abc')
