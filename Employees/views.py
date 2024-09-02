@@ -21,3 +21,8 @@ class ManageEmployee(generics.RetrieveUpdateDestroyAPIView):
    serializer_class=employeesSerializer 
    permission_classes =[IsAuthenticated]
 
+
+    
+
+
+
