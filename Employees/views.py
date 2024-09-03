@@ -21,15 +21,15 @@ class UpdateEmployee(generics.UpdateAPIView):
    serializer_class=employeesSerializer 
    permission_classes =[IsAuthenticated]
 
+class DeleteEmployee(generics.DestroyAPIView):
+   queryset=Employees.objects.all()
+   serializer_class=employeesSerializer 
+   permission_classes =[IsAuthenticated]
+
 class RetrieveEmployee(generics.RetrieveAPIView):
    queryset=Employees.objects.all()
    serializer_class=employeesSerializer 
    permission_classes =[AllowAny]
-
-class DestroyEmployee(generics.DestroyAPIView):
-   queryset=Employees.objects.all()
-   serializer_class=employeesSerializer 
-   permission_classes =[IsAuthenticated]
 
 
     
