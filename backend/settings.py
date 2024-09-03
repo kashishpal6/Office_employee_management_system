@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-w_@43wxi*lu$wu-ud#s+s&-$!6cyww48=m(0wxrwsc4k^yx$c_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["kashishpal123.pythonanywhere.com"]
 AUTH_USER_MODEL='Employees.Employees'
 
 
@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     "Companys",
     'Project_management',
     'Tasks',
-     
+
 
 ]
 
@@ -128,8 +128,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = "/var/www/static/"
+STATIC_URL = "/static/"
+STATIC_ROOT = "static/"
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -157,9 +158,6 @@ SIMPLE_JWT = {
     # Add other JWT settings as needed
 }
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-]
-STATICFILES_DIRS = [
-    BASE_DIR / "static"
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
 ]
