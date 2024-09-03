@@ -14,8 +14,19 @@ class Listprojects(generics.ListAPIView):
    serializer_class=projectsSerializer
    permission_classes= [AllowAny]
 
-class Manageprojects(generics.RetrieveUpdateDestroyAPIView):
+class Updateprojects(generics.UpdateAPIView):
    queryset=Project.objects.all()
    serializer_class=projectsSerializer 
    permission_classes =[IsAuthenticated]
+
+class Deleteprojects(generics.DestroyAPIView):
+   queryset=Project.objects.all()
+   serializer_class=projectsSerializer 
+   permission_classes =[IsAuthenticated]
+
+class Retrieveprojects(generics.RetrieveAPIView):
+   queryset=Project.objects.all()
+   serializer_class=projectsSerializer 
+   permission_classes =[AllowAny]
+
 

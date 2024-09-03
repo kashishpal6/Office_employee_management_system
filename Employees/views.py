@@ -16,7 +16,17 @@ class listEmployees(generics.ListAPIView):
    serializer_class=employeesSerializer
    permission_classes = [AllowAny] 
 
-class ManageEmployee(generics.RetrieveUpdateDestroyAPIView):
+class UpdateEmployee(generics.UpdateAPIView):
+   queryset=Employees.objects.all()
+   serializer_class=employeesSerializer 
+   permission_classes =[IsAuthenticated]
+
+class RetrieveEmployee(generics.RetrieveAPIView):
+   queryset=Employees.objects.all()
+   serializer_class=employeesSerializer 
+   permission_classes =[AllowAny]
+
+class DestroyEmployee(generics.DestroyAPIView):
    queryset=Employees.objects.all()
    serializer_class=employeesSerializer 
    permission_classes =[IsAuthenticated]

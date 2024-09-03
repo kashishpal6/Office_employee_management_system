@@ -29,4 +29,4 @@ urlpatterns = [
     path('tasks/',include("Tasks.urls"))
     
 
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

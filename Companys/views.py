@@ -9,15 +9,24 @@ class Create_company(generics.CreateAPIView):
    serializer_class=CompanySerializer
    permission_classes = [IsAuthenticated]
    
-
-   
 class Company_list(generics.ListAPIView):
    queryset=Company.objects.all()
    serializer_class=CompanySerializer
    permission_classes = [AllowAny] 
 
-class ManageCompany(generics.RetrieveUpdateDestroyAPIView):
+class UpdateCompany(generics.UpdateAPIView):
    queryset=Company.objects.all()
    serializer_class=CompanySerializer 
    permission_classes =[IsAuthenticated]
+
+class DeleteCompany(generics.DestroyAPIView):
+   queryset=Company.objects.all()
+   serializer_class=CompanySerializer 
+   permission_classes =[IsAuthenticated]
+
+class RetrieveCompany(generics.RetrieveAPIView):
+   queryset=Company.objects.all()
+   serializer_class=CompanySerializer 
+   permission_classes =[AllowAny]
+
 

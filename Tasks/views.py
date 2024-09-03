@@ -13,8 +13,18 @@ class Task_list(generics.ListAPIView):
    serializer_class=TasksSerializer
    permission_classes= [AllowAny]
 
-class Manage_tasks(generics.RetrieveUpdateDestroyAPIView):
+class Update_tasks(generics.UpdateAPIView):
    queryset=Tasks.objects.all()
    serializer_class=TasksSerializer 
    permission_classes =[IsAuthenticated]
+
+class Delete_tasks(generics.UpdateAPIView):
+   queryset=Tasks.objects.all()
+   serializer_class=TasksSerializer 
+   permission_classes =[IsAuthenticated]
+
+class Retrieve_tasks(generics.RetrieveAPIView):
+   queryset=Tasks.objects.all()
+   serializer_class=TasksSerializer 
+   permission_classes =[AllowAny]
 
