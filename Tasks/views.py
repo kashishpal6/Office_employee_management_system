@@ -4,11 +4,9 @@ from  rest_framework import generics
 from rest_framework.permissions import AllowAny,IsAuthenticated
 
 class Create_Task(generics.CreateAPIView):
+   queryset=Tasks.objects.all()
    serializer_class=TasksSerializer
    permission_classes= [IsAuthenticated]
-   def get_queryset(self):
-        Employee_id = self.kwargs['Employee_id']
-        return Tasks.objects.filter(Assigned_to__Employee_id=Employee_id)
 
 
 class Task_list(generics.ListAPIView):
