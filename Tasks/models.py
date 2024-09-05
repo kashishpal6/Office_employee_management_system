@@ -1,8 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime
-from Projects.models import Project
-from Employees.models import Employees
+from Project_management.models import Project_manager
+
 status = (
     ('1', 'Pending'),
     ('2', 'Working'),
@@ -13,8 +13,7 @@ status = (
 
 class Tasks(models.Model):
   Task_name=models.CharField(max_length=100)
-  Project_name = models.ForeignKey(Project,on_delete=models.CASCADE)
-  Assigned_to = models.ForeignKey(Employees, on_delete=models.CASCADE,default='string')
+  Assigned_to = models.ForeignKey(Project_manager, on_delete=models.CASCADE,default='string')
   Start_date = models.DateField(auto_now_add=True)
   Deadline =models.DateField(default=datetime.now)
   Comments=models.CharField(max_length=100,blank=True)
