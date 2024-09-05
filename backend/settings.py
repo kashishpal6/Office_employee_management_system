@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "Companys",
     'Project_management',
     'Tasks',
+    'Contact_us',
 
 
 ]

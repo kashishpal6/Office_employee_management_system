@@ -26,7 +26,8 @@ urlpatterns = [
     path('tokens/',include('tokens.urls')),
     path('companys/',include("Companys.urls")),
     path('project_management/',include('Project_management.urls')),
-    path('tasks/',include("Tasks.urls"))
+    path('tasks/',include("Tasks.urls")),
+    path('contact_us/',include("Contact_us.urls"))
     
 
 ]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
