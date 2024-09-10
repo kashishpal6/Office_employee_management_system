@@ -41,20 +41,23 @@ class RetrieveEmployee(generics.RetrieveAPIView):
 
         project_managers = Project_manager.objects.filter(name__Employee_id=self.kwargs['pk'])
         projects = [project_manager.project for project_manager in project_managers]
-        project_data = [{'name': project.Project_name,'id':project.id} for project in projects]
-
-        tasks = Tasks.objects.filter(Assigned_to__name=emp_data)
-        tasks_data = [{'name': task.Task_name,'Start_date':task.Start_date,'Deadline':task.Deadline,'Comments':task.Comments,'Status':task.Status} for task in tasks]
-
-
+        project_ids = [project.id for project in projects]
+        tasks = Tasks.objects.filter(Assigned_to__project__in=project_ids)
+        project_data = []
+        for project in projects:
+            project_tasks = tasks.filter(Assigned_to__project=project)
+            tasks_data = [{'name': task.Task_name, 'id': task.id, 'start_date': task.Start_date, 'deadline': task.Deadline, 'comments': task.Comments, 'status': task.Status} for task in project_tasks]
+            project_data.append({
+                'name': project.Project_name,
+                'id': project.id,
+                'tasks': tasks_data
+            })
         data = {
             'employee_data': emp_serialized,
             'projects': project_data,
-            'tasks': tasks_data
         }
 
         return response.Response(data=data, status=status.HTTP_200_OK)
-
 
 
 
