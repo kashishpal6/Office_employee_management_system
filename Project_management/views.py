@@ -16,10 +16,10 @@ class CreateProjectmanager(generics.CreateAPIView):
     serializer_class = Project_managementSerializer
     permission_classes = [IsAuthenticated]
 
-class ManageprojectManager(generics.RetrieveUpdateDestroyAPIView):
-   queryset=Project_manager.objects.all()
-   serializer_class=Project_managementSerializer
-   permission_classes =[IsAuthenticated]
+# class ManageprojectManager(generics.RetrieveUpdateDestroyAPIView):
+#    queryset=Project_manager.objects.all()
+#    serializer_class=Project_managementSerializer
+#    permission_classes =[IsAuthenticated]
 
 class List_EmployeeManager(generics.ListAPIView):
     serializer_class = Project_managementSerializer
