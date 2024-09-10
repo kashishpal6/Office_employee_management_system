@@ -21,7 +21,7 @@ class Update_tasks(generics.UpdateAPIView):
    serializer_class=TasksSerializer 
    permission_classes =[IsAuthenticated]
 
-class Delete_tasks(generics.UpdateAPIView):
+class Delete_tasks(generics.DestroyAPIView):
    queryset=Tasks.objects.all()
    serializer_class=TasksSerializer 
    permission_classes =[IsAuthenticated]
