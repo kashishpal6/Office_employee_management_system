@@ -3,17 +3,13 @@ from .serializers import employeesSerializer
 from rest_framework import generics,response,status
 from rest_framework.permissions import AllowAny,IsAuthenticated
 from Project_management.models import Project_manager
-from Projects.serializers import projectsSerializer
 from Projects.models import *
 from Tasks.models import Tasks
-from Tasks.serializers import TasksSerializer
 
 class Employee(generics.CreateAPIView):
    queryset=Employees.objects.all()
    serializer_class=employeesSerializer
    permission_classes = [IsAuthenticated]
-
-
 
 class listEmployees(generics.ListAPIView):
    queryset=Employees.objects.all()
