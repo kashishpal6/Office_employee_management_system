@@ -33,6 +33,9 @@ AUTH_USER_MODEL='Employees.Employees'
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
+    'channels_redis',
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,6 +51,7 @@ INSTALLED_APPS = [
     'Project_management',
     'Tasks',
     'Contact_us',
+    'Chat'
 
 
 ]
@@ -81,7 +85,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'backend.wsgi.application'
+ASGI_APPLICATION = 'backend.asgi.application'
 
 
 # Database
@@ -166,3 +170,11 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
 ]
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)],
+        },
+    },
+}
