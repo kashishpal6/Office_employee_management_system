@@ -1,5 +1,6 @@
 from typing import Iterable
 from django.db import models
+from .models import * 
 
 from Employees.models import Employees
  
@@ -28,6 +29,9 @@ class Message(models.Model):
   Receiver = models.ForeignKey(Employees,on_delete=models.CASCADE,related_name="Receiver")
   Message= models.TextField()
   time_stamp=models.DateTimeField(auto_now_add=True)
+  
+  def __str__(self):
+     return self.ChatRoom.User_1.Employee_name +'-'+ self.ChatRoom.User_2.Employee_name
 
 
 # class Message_status(models.Model):
