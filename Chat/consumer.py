@@ -5,10 +5,12 @@ from Chat.models import *
 
 class ChatConsumer(WebsocketConsumer):
     def connect(self):
-        self.room_name = "test_consumer"
-        self.room_group_name = "test_consumer"
-        async_to_sync = (self.channel_layer.group_add)(
-            self.room_name,self.room_group_name
+
+        room=self.scope['url_route']['kwargs']['room']
+        self.room_name = f"{room}"
+        self.room_group_name = f"{room}"
+        async_to_sync(self.channel_layer.group_add)(
+            self.room_group_name,self.channel_name
         )
         self.accept()
         self.send(text_data=json.dumps({'status':"Connected"}))
@@ -21,12 +23,12 @@ class ChatConsumer(WebsocketConsumer):
         
 
     def receive(self, text_data):
-        print("chal rha h ")
-
+        
         text_data_json = json.loads(text_data)
         message = text_data_json["message"]
+        print(message)
         username = text_data_json["username"]
-        self.channel_layer.group_send(
+        async_to_sync(self.channel_layer.group_send)(
             self.room_group_name,{
                 "type" : "sendMessage" ,
                 "message" : message , 

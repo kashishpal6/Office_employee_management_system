@@ -166,15 +166,18 @@ SIMPLE_JWT = {
     'USER_ID_FIELD': 'Employee_id',
     # Add other JWT settings as needed
 }
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
-]
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:5173",
+#     "http://127.0.0.1:5173",
+# ]
+
+CORS_ALLOW_ALL_ORIGINS = True
+
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [("127.0.0.1", 6379),("0.0.0.0",6379)],
+            "hosts": [("0.0.0.0",6379)],
         },
     },
 }
